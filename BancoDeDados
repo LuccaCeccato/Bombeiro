@@ -1,0 +1,263 @@
+CREATE DATABASE BancoBuscaTerrestre;
+USE BancoBuscaTerrestre;
+
+CREATE TABLE login (
+    id_login INT AUTO_INCREMENT PRIMARY KEY,
+    login_usuario VARCHAR(50) UNIQUE NOT NULL,
+    login_senha VARCHAR(255) NOT NULL
+);
+
+-- Tabela de Materiais
+CREATE TABLE materiais (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    status BOOLEAN NOT NULL DEFAULT FALSE
+);
+
+-- Tabela de Materiais Auxiliares
+CREATE TABLE materiais_auxiliares (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    status BOOLEAN NOT NULL DEFAULT FALSE
+);
+
+-- Tabela de Fase Investigatória
+CREATE TABLE fase_investigatoria (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    area_desaparecimento VARCHAR(100),
+    qtd_pessoas INT,
+    idade INT,
+    sexo CHAR(1),
+    condicao_mental VARCHAR(100),
+    estado_saude VARCHAR(100),
+    grau_familiaridade_terreno VARCHAR(100),
+    disponibilidade_ARA VARCHAR(100),
+    tempo_perdido DATE,
+    motivo_perdido VARCHAR(100),
+    disposicao_encontrado VARCHAR(100),
+    condicoes_meteorologicas VARCHAR(100),
+    acionar_OBTR BOOLEAN,
+    data_fato DATE,
+    data_aviso DATE,
+    hora_fato DATETIME,
+    hora_aviso DATETIME,
+    nome_vitima VARCHAR(100),
+    apelido_vitima VARCHAR(100),
+    endereco_vitima VARCHAR(100),
+    telefone_vitima VARCHAR(15),
+    celular_vitima VARCHAR(15),
+    nome_pai_vitima VARCHAR(50),
+    telefone_pai_vitima VARCHAR(15),
+    nome_mae_vitima VARCHAR(50),
+    telefone_mae_vitima VARCHAR(15),
+    nome_conjuge_vitima VARCHAR(50),
+    telefone_conjuge_vitima VARCHAR(15),
+    nome_filho_vitima VARCHAR(50),
+    telefone_filho_vitima VARCHAR(15),
+    nome_amigo_vitima VARCHAR(50),
+    telefone_amigo_vitima VARCHAR(15),
+    endereco_adicional VARCHAR(100)
+);
+
+-- Tabela de Motivação
+CREATE TABLE motivacao (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    hist_situacao VARCHAR(150),
+    mot_costumeira BOOLEAN,
+    dest_pessoa VARCHAR(50)
+);
+
+-- Tabela de Meio de Transporte
+CREATE TABLE meio_transporte (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    caminho_a_pe BOOLEAN,
+    bicicleta BOOLEAN,
+    marca_modelo_bicicleta VARCHAR(50),
+    cor_bicicleta VARCHAR(50),
+    tamanho_bicicleta VARCHAR(10),
+    veiculo_motor BOOLEAN,
+    tipo_veiculo VARCHAR(50),
+    marca_modelo_veiculo VARCHAR(50),
+    cor_veiculo VARCHAR(50),
+    placa_veiculo VARCHAR(50),
+    montaria BOOLEAN,
+    raca_montaria VARCHAR(50),
+    cor_montaria VARCHAR(50),
+    veiculo_montaria_encontrado BOOLEAN,
+    situacao_localizacao VARCHAR(100)
+);
+
+-- Tabela de Última Vez Visto
+CREATE TABLE last_seen (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    data DATE,
+    local VARCHAR(50),
+    direcao_seguida VARCHAR(50),
+    nome_testemunha VARCHAR(50),
+    telefone_testemunha VARCHAR(15),
+    endereco_testemunha VARCHAR(100)
+);
+
+-- Tabela de Descrição Física
+CREATE TABLE descricao_fisica (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    tem_foto BOOLEAN,
+    idade INT,
+    cor VARCHAR(20),
+    altura DOUBLE,
+    cabelo VARCHAR(50),
+    barba BOOLEAN,
+    caracteristicas VARCHAR(100)
+);
+
+-- Tabela de Vestimenta da Vítima
+CREATE TABLE vestimenta_vitima (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    camiseta_camisa BOOLEAN,
+    cor_camisa VARCHAR(50),
+    material_estampa_camisa VARCHAR(20),
+    calca BOOLEAN,
+    cor_calca VARCHAR(20),
+    material_estampa_calca VARCHAR(20),
+    calcao BOOLEAN,
+    cor_calcao VARCHAR(20),
+    material_estampa_calcao VARCHAR(20),
+    blusa BOOLEAN,
+    cor_blusa VARCHAR(20),
+    material_estampa_blusa VARCHAR(20),
+    jaqueta BOOLEAN,
+    material_estampa_jaqueta VARCHAR(20),
+    cor_jaqueta VARCHAR(20),
+    cinto BOOLEAN,
+    material_cinto VARCHAR(20),
+    cor_cinto VARCHAR(20),
+    bone_chapeu BOOLEAN,
+    tipo_bone_chapeu VARCHAR(20),
+    cor_bone_chapeu VARCHAR(20),
+    material_estampa_bone_chapeu VARCHAR(20),
+    luvas BOOLEAN,
+    tipo_luvas VARCHAR(20),
+    cor_luvas VARCHAR(20),
+    material_estampa_luvas VARCHAR(20),
+    calcado BOOLEAN,
+    tipo_calcado VARCHAR(20),
+    cor_calcado VARCHAR(20),
+    tamanho_calcado VARCHAR(10),
+    material_estampa_calcado VARCHAR(20),
+    capa_chuva BOOLEAN,
+    tipo_capa_chuva VARCHAR(20),
+    cor_capa_chuva VARCHAR(20),
+    material_estampa_capa_chuva VARCHAR(20),
+    oculos_grau_sol BOOLEAN,
+    cor_oculos_grau_sol VARCHAR(20),
+    tipo_oculos_grau_sol VARCHAR(20),
+    celular BOOLEAN,
+    cor_celular VARCHAR(20),
+    modelo_celular VARCHAR(50),
+    marca_celular VARCHAR(50),
+    roupas_adicionais BOOLEAN
+);
+
+-- Tabela de Materiais, Equipamentos e Suprimentos Animais
+CREATE TABLE mater_equip_supri_anim (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    cigarros BOOLEAN,
+    mochila BOOLEAN,
+    barraca BOOLEAN,
+    colchonete BOOLEAN,
+    saco_dormir BOOLEAN,
+    alimentos BOOLEAN,
+    bebidas_cantil BOOLEAN,
+    faca BOOLEAN,
+    canivete BOOLEAN,
+    facao BOOLEAN,
+    lanterna BOOLEAN,
+    bussola BOOLEAN,
+    arma_fogo BOOLEAN,
+    gps BOOLEAN,
+    ferramentas_trabalho BOOLEAN,
+    caes BOOLEAN,
+    gatos BOOLEAN,
+    outros VARCHAR(50)
+);
+
+-- Tabela de Saúde
+CREATE TABLE saude (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    deficiencias_fisicas VARCHAR(150),
+    doencas VARCHAR(150),
+    problemas_psicologicos VARCHAR(150),
+    usa_medicamentos BOOLEAN,
+    levou_medicamento_consigo BOOLEAN,
+    consequencias_falta_medicamento VARCHAR(150),
+    usuario_drogas BOOLEAN,
+    grau_dependencia VARCHAR(150)
+);
+
+-- Tabela de Comportamento
+CREATE TABLE comportamento (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    conflitos_familiares BOOLEAN,
+    conflitos_trabalho BOOLEAN,
+    outros_conflitos BOOLEAN,
+    problemas_financeiros BOOLEAN,
+    atentou_contra_propria_vida BOOLEAN,
+    ameacou_atentar_contra_propria_vida BOOLEAN
+);
+
+-- Tabela de Experiência e Resistência Física
+CREATE TABLE exp_resist_fisica (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    costume_caminhar_matas BOOLEAN,
+    dia_noite VARCHAR(10),
+    conhece_area BOOLEAN,
+    desde_quando VARCHAR(50),
+    ja_se_perdeu BOOLEAN,
+    como_foi_encontrado VARCHAR(150),
+    o_que_fez VARCHAR(150),
+    resistencia_fisica VARCHAR(50),
+    sabe_nadar BOOLEAN
+);
+
+-- Tabela de Procedimentos Realizados
+CREATE TABLE procedimentos_realizados (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    procedimento VARCHAR(150)
+);
+
+-- Tabela de Ocorrência que referencia outras tabelas
+CREATE TABLE ocorrencia (
+    id_ocorrencia INT AUTO_INCREMENT PRIMARY KEY,
+    id_materiais INT,
+    id_materiais_aux INT,
+    id_fase_invest INT,
+    id_motivacao INT,
+    id_meio_transporte INT,
+    id_last_seen INT,
+    id_descricao_fisica INT,
+    id_vestimenta_vitima INT,
+    id_mater_equip_supri_anim INT,
+    id_saude INT,
+    id_comportamento INT,
+    id_exp_resist_fisica INT,
+    id_proced_realizad INT,
+    data_ocorrencia DATE NOT NULL,
+    hora_ocorrencia TIME NOT NULL,
+    local_ocorrencia VARCHAR(100) NOT NULL,
+    operador_ocorrencia VARCHAR(50) NOT NULL,
+
+    -- Definindo as chaves estrangeiras para referenciar outras tabelas
+    FOREIGN KEY (id_materiais) REFERENCES materiais(id),
+    FOREIGN KEY (id_materiais_aux) REFERENCES materiais_auxiliares(id),
+    FOREIGN KEY (id_fase_invest) REFERENCES fase_investigatoria(id),
+    FOREIGN KEY (id_motivacao) REFERENCES motivacao(id),
+    FOREIGN KEY (id_meio_transporte) REFERENCES meio_transporte(id),
+    FOREIGN KEY (id_last_seen) REFERENCES last_seen(id),
+    FOREIGN KEY (id_descricao_fisica) REFERENCES descricao_fisica(id),
+    FOREIGN KEY (id_vestimenta_vitima) REFERENCES vestimenta_vitima(id),
+    FOREIGN KEY (id_mater_equip_supri_anim) REFERENCES mater_equip_supri_anim(id),
+    FOREIGN KEY (id_saude) REFERENCES saude(id),
+    FOREIGN KEY (id_comportamento) REFERENCES comportamento(id),
+    FOREIGN KEY (id_exp_resist_fisica) REFERENCES exp_resist_fisica(id),
+    FOREIGN KEY (id_proced_realizad) REFERENCES procedimentos_realizados(id)
+);
