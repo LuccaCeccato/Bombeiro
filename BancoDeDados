@@ -7,19 +7,47 @@ CREATE TABLE login (
     login_senha VARCHAR(255) NOT NULL
 );
 
--- Tabela de Materiais
 CREATE TABLE materiais (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    nome VARCHAR(100) NOT NULL,
-    status BOOLEAN NOT NULL DEFAULT FALSE
+    facao BOOLEAN NOT NULL DEFAULT FALSE,
+    faca BOOLEAN NOT NULL DEFAULT FALSE,
+    lanterna BOOLEAN NOT NULL DEFAULT FALSE,
+    pilhas BOOLEAN NOT NULL DEFAULT FALSE,
+    barraca BOOLEAN NOT NULL DEFAULT FALSE,
+    saco_de_dormir BOOLEAN NOT NULL DEFAULT FALSE,
+    cantil BOOLEAN NOT NULL DEFAULT FALSE,
+    roupa_reserva BOOLEAN NOT NULL DEFAULT FALSE,
+    mochila BOOLEAN NOT NULL DEFAULT FALSE,
+    equipamentos_de_comunicacao BOOLEAN NOT NULL DEFAULT FALSE,
+    radio_e_celular BOOLEAN NOT NULL DEFAULT FALSE,
+    botas BOOLEAN NOT NULL DEFAULT FALSE,
+    luvas BOOLEAN NOT NULL DEFAULT FALSE,
+    capacete BOOLEAN NOT NULL DEFAULT FALSE,
+    oculos_de_seguranca BOOLEAN NOT NULL DEFAULT FALSE,
+    bussola BOOLEAN NOT NULL DEFAULT FALSE,
+    gps BOOLEAN NOT NULL DEFAULT FALSE,
+    carta_topografica BOOLEAN NOT NULL DEFAULT FALSE,
+    equipamento_de_salvamento_em_altura BOOLEAN NOT NULL DEFAULT FALSE
 );
 
--- Tabela de Materiais Auxiliares
 CREATE TABLE materiais_auxiliares (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    nome VARCHAR(100) NOT NULL,
-    status BOOLEAN NOT NULL DEFAULT FALSE
+    capa_de_chuva BOOLEAN NOT NULL DEFAULT FALSE,
+    sinalizadores BOOLEAN NOT NULL DEFAULT FALSE,
+    fosforo_ou_isqueiro BOOLEAN NOT NULL DEFAULT FALSE,
+    fogareiro BOOLEAN NOT NULL DEFAULT FALSE,
+    apito BOOLEAN NOT NULL DEFAULT FALSE,
+    megafone BOOLEAN NOT NULL DEFAULT FALSE,
+    material_de_aph BOOLEAN NOT NULL DEFAULT FALSE,
+    maca BOOLEAN NOT NULL DEFAULT FALSE,
+    colete_laranja BOOLEAN NOT NULL DEFAULT FALSE,
+    repelente BOOLEAN NOT NULL DEFAULT FALSE,
+    protetor_solar BOOLEAN NOT NULL DEFAULT FALSE,
+    binoculo_de_longo_alcance BOOLEAN NOT NULL DEFAULT FALSE,
+    drone BOOLEAN NOT NULL DEFAULT FALSE,
+    alimentacao_racao_pronta_individual BOOLEAN NOT NULL DEFAULT FALSE
 );
+
 
 -- Tabela de Fase Investigatória
 CREATE TABLE fase_investigatoria (
@@ -261,3 +289,4 @@ CREATE TABLE ocorrencia (
     FOREIGN KEY (id_exp_resist_fisica) REFERENCES exp_resist_fisica(id),
     FOREIGN KEY (id_proced_realizad) REFERENCES procedimentos_realizados(id)
 );
+
